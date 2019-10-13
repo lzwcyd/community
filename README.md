@@ -1,5 +1,6 @@
-#快速开发文档
-##开发工具
+# 快速开发文档
+
+## 开发工具
 * [jdk](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html):本说明提供的是java jdk8（一个经典的java版本）
 
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/download/)【可选】：
