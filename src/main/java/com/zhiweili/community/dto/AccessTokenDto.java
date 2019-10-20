@@ -11,4 +11,5 @@ public class AccessTokenDto {
     private String client_secret;
     private String code;
     private String grant_type;
+    private String state;
 }
