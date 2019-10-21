@@ -8,7 +8,7 @@ import lombok.ToString;
 @Getter
 @ToString
 public class GiteeUserDto {
-    private String name;
-    private Long id;
-    private String bio;
+  private String name;
+  private Long id;
+  private String bio;
 }
