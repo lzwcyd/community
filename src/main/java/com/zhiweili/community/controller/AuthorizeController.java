@@ -2,9 +2,9 @@ package com.zhiweili.community.controller;
 
 import com.zhiweili.community.dto.AccessTokenDto;
 import com.zhiweili.community.dto.GiteeUserDto;
-import com.zhiweili.community.mapper.UserMapper;
-import com.zhiweili.community.model.User;
+import com.zhiweili.community.entity.User;
 import com.zhiweili.community.provider.GiteeProvider;
+import com.zhiweili.community.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -19,7 +19,7 @@ public class AuthorizeController {
 
     @Autowired
     private GiteeProvider giteeProvider;
-    private UserMapper userMapper;
+    private UserRepository userRepository;
 
     @Value("${gitee.client.id}")
     private String clientId;
@@ -50,7 +50,7 @@ public class AuthorizeController {
             user.setGmtCreate(System.currentTimeMillis());
             user.setGmtModified(user.getGmtCreate());
             try{
-                userMapper.insert(user);
+               userRepository.save(user);
             }catch (Exception e){
             }
             request.getSession().setAttribute("user",giteeUserDto);
