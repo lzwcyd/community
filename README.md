@@ -15,15 +15,48 @@
 > 2. 下载[maven](http://maven.apache.org/download.html)，解压maven放在一个非中文无空格的路径下;
 > 3. 配置maven的相关环境变量：一、在环境变量增加·M2_HOME·，路径是maven解压后的根目录；二、在环境变量里的`path`中增加maven/bin的目录
 > 4. 配置阿里云镜像【可选】：在maven的根目录下`conf`文件夹下`settings.xml`文件，用任一文本编辑器打开，找到 ``<mirror>``
-添加以下代码：
->```   
-><mirrors>
->  <mirror>
->    <id>alimaven</id>
->    <mirrorOf>central</mirrorOf>
->    <name>aliyun maven</name>
->    <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
->   </mirror>
-></mirrors>
->```                                                                     
+> 添加以下代码：
+> ```   
+> <mirrors>
+> <mirror>
+> <id>alimaven</id>
+> <mirrorOf>central</mirrorOf>
+> <name>aliyun maven</name>
+> <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+> </mirror>
+> </mirrors>
+> ### 或者
+> <mirror>
+>      <id>aliyunmaven</id>
+>      <mirrorOf>*</mirrorOf>
+>      <name>阿里云公共仓库</name>
+>      <url>https://maven.aliyun.com/repository/public</url>
+>     </mirror>
+>      <mirror>
+>      <id>aliyunmaven</id>
+>      <mirrorOf>*</mirrorOf>
+>      <name>阿里云谷歌仓库</name>
+>      <url>https://maven.aliyun.com/repository/google</url>
+>     </mirror>
+>     <mirror>
+>      <id>aliyunmaven</id>
+>      <mirrorOf>*</mirrorOf>
+>      <name>阿里云阿帕奇仓库</name>
+>      <url>https://maven.aliyun.com/repository/apache-snapshots</url>
+>     </mirror>
+>     <mirror>
+>      <id>aliyunmaven</id>
+>      <mirrorOf>*</mirrorOf>
+>      <name>阿里云spring仓库</name>
+>      <url>https://maven.aliyun.com/repository/spring</url>
+>     </mirror>
+>     <mirror>
+>      <id>aliyunmaven</id>
+>      <mirrorOf>*</mirrorOf>
+>      <name>阿里云spring插件仓库</name>
+>      <url>https://maven.aliyun.com/repository/spring-plugin</url>
+>     </mirror>
+> ```
+
 * [MySQL 5.7](https://dev.mysql.com/downloads/mysql/5.7.html#downloads)
+
