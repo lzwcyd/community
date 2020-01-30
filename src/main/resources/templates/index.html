@@ -35,7 +35,8 @@
                         <li><a href="#">退出登录</a></li>
                     </ul>
                 </li>
-                <li th:if="${session.user == null}"><a href="https://gitee.com/oauth/authorize?client_id=fde18c7491c1c81c90a3cb46022ad307dceee1b1bdc68d66fb64acaeab613034&redirect_uri=http://localhost:8010/callback&response_type=code">登录</a></li>
+                <li th:if="${session.user == null}"><a href="https://github.com/login/oauth/authorize?client_id=3300e807d63fe5e4b158
+&redirect_uri=http://localhost:8010/callback&scope=use&state=1">登录</a></li>
             </ul>
         </div>
     </div>

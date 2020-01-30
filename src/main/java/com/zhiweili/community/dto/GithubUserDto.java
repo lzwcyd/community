@@ -7,7 +7,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-public class GiteeUserDto {
+public class GithubUserDto {
     private String name;
     private Long id;
     private String bio;

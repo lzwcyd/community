@@ -1,10 +1,9 @@
 package com.zhiweili.community.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.zhiweili.community.dto.AccessTokenDto;
-import com.zhiweili.community.dto.GiteeUserDto;
+import com.zhiweili.community.dto.GithubUserDto;
 import com.zhiweili.community.entity.User;
-import com.zhiweili.community.provider.GiteeProvider;
+import com.zhiweili.community.provider.GithubProvider;
 import com.zhiweili.community.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,43 +19,45 @@ import java.util.UUID;
 public class AuthorizeController {
 
     @Autowired
-    private GiteeProvider giteeProvider;
+    private GithubProvider githubProvider;
     @Autowired
     private UserRepository userRepository;
 
-    @Value("${gitee.client.id}")
+    @Value("${github.client.id}")
     private String clientId;
 
-    @Value("${gitee.client.secret}")
+    @Value("${github.client.secret}")
     private String clientSecret;
 
-    @Value("${gitee.Redirect.uri}")
+    @Value("${github.Redirect.uri}")
     private String redirectUri;
 
     @GetMapping("/callback")
-    public ResponseEntity callback(
-            @RequestParam(name = "code") String code, HttpServletRequest request) {
+    public String callback(
+            @RequestParam(name = "code") String code,
+            @RequestParam(name = "state") String state,
+            HttpServletRequest request) {
         AccessTokenDto accessTokenDto = new AccessTokenDto();
         accessTokenDto.setClient_id(clientId);
         accessTokenDto.setClient_secret(clientSecret);
         accessTokenDto.setCode(code);
-        accessTokenDto.setState("1");
+        accessTokenDto.setState(state);
         accessTokenDto.setGrant_type("authorization_code");
         accessTokenDto.setRedirect_uri(redirectUri);
-        String accessToken = giteeProvider.getAccessToken(accessTokenDto);
-        GiteeUserDto giteeUserDto = giteeProvider.getUser(accessToken);
-        if (giteeUserDto != null) {
+        String accessToken = githubProvider.getAccessToken(accessTokenDto);
+        GithubUserDto githubUserDto = githubProvider.getUser(accessToken);
+        if (githubUserDto != null) {
             User user = new User();
             user.setToken(UUID.randomUUID().toString());
-            user.setAccountId(String.valueOf(giteeUserDto.getId()));
-            user.setName(giteeUserDto.getName());
+            user.setAccountId(String.valueOf(githubUserDto.getId()));
+            user.setName(githubUserDto.getName());
             user.setGmtCreate(System.currentTimeMillis());
             user.setGmtModified(user.getGmtCreate());
             userRepository.save(user);
-            request.getSession().setAttribute("user", giteeUserDto);
-            return ResponseEntity.ok(user);
+            request.getSession().setAttribute("user", githubUserDto);
+            return  "redirect:/";
         } else {
-            return ResponseEntity.badRequest().body(null);
+            return "redirect:/";
         }
     }
 }
