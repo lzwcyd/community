@@ -1,4 +1,4 @@
-package com.zhiweili.community;
+package club.zhiweili.community;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

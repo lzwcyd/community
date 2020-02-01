@@ -1,4 +1,4 @@
-package com.zhiweili.community.dto;
+package club.zhiweili.community.dto;
 
 import lombok.Getter;
 import lombok.Setter;

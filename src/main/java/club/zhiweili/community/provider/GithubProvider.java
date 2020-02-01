@@ -1,8 +1,8 @@
-package com.zhiweili.community.provider;
+package club.zhiweili.community.provider;
 
+import club.zhiweili.community.dto.AccessTokenDto;
+import club.zhiweili.community.dto.GithubUserDto;
 import com.alibaba.fastjson.JSON;
-import com.zhiweili.community.dto.AccessTokenDto;
-import com.zhiweili.community.dto.GithubUserDto;
 import okhttp3.*;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +14,8 @@ public class GithubProvider {
         MediaType mediaType = MediaType.get("application/json; charset=utf-8");
 
         OkHttpClient client = new OkHttpClient();
-        RequestBody body = RequestBody.create(mediaType, JSON.toJSONString(accessTokenDto));
+//        RequestBody body = RequestBody.create(mediaType, JSON.toJSONString(accessTokenDto));
+        RequestBody body = RequestBody.create(JSON.toJSONString(accessTokenDto),mediaType);
         Request request = new Request.Builder()
                 .url("https://github.com/login/oauth/access_token")
                 .post(body)

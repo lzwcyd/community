@@ -44,7 +44,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
+            <version>1.18.10</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -83,6 +83,23 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>6.2.1</version>
+                <configuration>
+                    <url>jdbc:mysql://47.101.129.233:3306/community</url>
+                    <user>root</user>
+                    <password>Wo123456..</password>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                    <groupId>mysql</groupId>
+                    <artifactId>mysql-connector-java</artifactId>
+                    <version>8.0.16</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>

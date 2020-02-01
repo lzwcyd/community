@@ -1,8 +1,7 @@
-package com.zhiweili.community.controller;
+package club.zhiweili.community.controller;
 
-import com.zhiweili.community.entity.User;
-import com.zhiweili.community.repository.UserRepository;
-import com.zhiweili.community.service.UserService;
+import club.zhiweili.community.entity.User;
+import club.zhiweili.community.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

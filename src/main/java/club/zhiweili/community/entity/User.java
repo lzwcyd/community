@@ -1,4 +1,4 @@
-package com.zhiweili.community.entity;
+package club.zhiweili.community.entity;
 
 import lombok.AccessLevel;
 import lombok.Getter;

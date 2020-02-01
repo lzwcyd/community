@@ -1,7 +1,7 @@
-package com.zhiweili.community.service;
+package club.zhiweili.community.service;
 
-import com.zhiweili.community.entity.User;
-import com.zhiweili.community.repository.UserRepository;
+import club.zhiweili.community.entity.User;
+import club.zhiweili.community.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

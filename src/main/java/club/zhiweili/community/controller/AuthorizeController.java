@@ -1,13 +1,12 @@
-package com.zhiweili.community.controller;
+package club.zhiweili.community.controller;
 
-import com.zhiweili.community.dto.AccessTokenDto;
-import com.zhiweili.community.dto.GithubUserDto;
-import com.zhiweili.community.entity.User;
-import com.zhiweili.community.provider.GithubProvider;
-import com.zhiweili.community.repository.UserRepository;
+import club.zhiweili.community.dto.AccessTokenDto;
+import club.zhiweili.community.dto.GithubUserDto;
+import club.zhiweili.community.entity.User;
+import club.zhiweili.community.provider.GithubProvider;
+import club.zhiweili.community.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
