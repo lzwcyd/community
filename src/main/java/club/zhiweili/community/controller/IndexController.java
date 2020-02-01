@@ -19,7 +19,7 @@ public class IndexController {
 
         Cookie[] cookies = request.getCookies();
     for (Cookie cookie : cookies) {
-      if (cookie.getName().equals("token ")){
+      if (cookie.getName().equals("token")){
           String token = cookie.getValue();
           User user = userService.findByToken(token);
           if (user != null){
