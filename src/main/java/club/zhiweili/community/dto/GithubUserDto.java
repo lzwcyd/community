@@ -1,14 +1,11 @@
 package club.zhiweili.community.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
-@Setter
-@Getter
-@ToString
+@Data
 public class GithubUserDto {
     private String name;
     private Long id;
     private String bio;
+    private String avatarUrl;
 }
