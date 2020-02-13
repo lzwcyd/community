@@ -19,7 +19,7 @@ public class IndexController {
   @Autowired UserService userService;
   @Autowired QuestionService questionService;
 
-  @GetMapping("/")
+  @GetMapping("/index")
   public String index(
       HttpServletRequest request,
       Model model,
@@ -41,5 +41,9 @@ public class IndexController {
     List<QuestionDto> questionDtoList = questionService.list(page,size);
     model.addAttribute("questions", questionDtoList);
     return "index";
+  }
+  @GetMapping("/")
+  public String album(){
+    return "album";
   }
 }
